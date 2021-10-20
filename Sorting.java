@@ -1,20 +1,20 @@
 import java.util.Arrays;
 import java.util.Scanner;
 public class Sorting {
-    int a = 0;
+
 
     public void sort(int[] array) {
         var temp = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - 1; j += 2) {
 
-                if((array[j] * array[j++]) != 0) {
+                if((array[j] * array[j++]) !=0 ) {
                         temp = array[j];
                         array[j] = array[j -= 1];
                         array[j -= 1] = temp;
                     }
 
-                if ((array[j] == 1 && array[j++] == 0) || array.length < 4) {
+                if (array[j] == 1 && array[j++] == 0 || array.length < 4) {
                     System.out.println("No sorting:");
                 }
             }
@@ -38,5 +38,4 @@ public class Sorting {
             System.out.println(Arrays.toString(array));
         }
     }
-
 
