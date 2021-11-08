@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-
+//j= arr.length-1;
 
     public class Sorting {
 
