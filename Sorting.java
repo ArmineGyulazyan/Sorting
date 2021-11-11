@@ -20,13 +20,13 @@ import java.util.Scanner;
                         array[j]=temp2;
                     }
 
-      /** public boolean isSorted(char[] array,int i, int j) {
-            for ( i = 0; i < array.length - 1; i++, j--) {
-                if (array[i] < array[j])
+      public static boolean isSorted(char[] array,int i) {
+            for ( i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i+1])
                     return false;
             }
             return true;
-        }**/
+        }
 
                     public static void main (String[] args) {
 
@@ -45,14 +45,23 @@ import java.util.Scanner;
                         }
                         int j = arr.length - 1;
                         for (i = 0; i < j; i++) {
-                            if (arr[i] == '0' && arr[i+1] == '1') {
-                                 if (arr[j - 2] == '1') {
-                                    sort(arr, i+1, j);
-                                 }
-                                  //if(arr[i]==)
-                            }
+                            if(  isSorted(arr, i)){
 
-                            //j--;
+                                    System.out.println("Sorted!"+ Arrays.toString(arr));
+                                    System.exit(0);
+                            }
+                            else {
+                                if (arr[i] == '0' && arr[i + 1] == '1') {
+
+                                    if (arr[i + 2] == '1') {
+                                        sort(arr, i + 1, j);
+                                    } else if(arr[i+2]=='0') {
+                                        sort(arr, i, j);
+
+                                    }
+                                }
+
+                            }//j--;
                         }
                         System.out.println(Arrays.toString(arr));
                         /** for (i = 0; i < n; i++) {
