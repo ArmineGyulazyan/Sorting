@@ -11,22 +11,24 @@ import java.util.Scanner;
             this.array = array;
         }
 
-        public static void sort(char[] array, int i, int j) {
-                        char temp1 = array[i];
-                        char temp2 = array[i+1];
-                        array[i] = array[j-1];
-                        array[i+1] = array[j];
-                        array[j-1]=temp1;
-                        array[j]=temp2;
+        public static void sort(char[] array, int firstp, int secondp) {
+                        char temp1 = array[firstp];
+                        char temp2 = array[firstp+1];
+                        array[firstp] = array[secondp+1];
+                        array[firstp+1] = array[secondp];
+                        array[secondp+1]=temp1;
+                        array[secondp]=temp2;
                     }
 
-      public static boolean isSorted(char[] array,int i) {
-            for ( i = 0; i < array.length - 1; i++) {
-                if (array[i] > array[i+1])
-                    return false;
-            }
-            return true;
-        }
+      public static boolean isSorted(char[] array, int i) {
+          for (i = 0; i < array.length-1; i++) {
+              if (array[i] > array[i + 1]) {
+                  return false;
+              }
+
+          }
+          return true;
+      }
 
                     public static void main (String[] args) {
 
@@ -35,39 +37,76 @@ import java.util.Scanner;
                         System.out.println("Enter the number of elements: ");
                         n = sc.nextInt();
 
-                        char[] arr = new char[n];
+                        char[] array = new char[n];
                         System.out.println("Enter the elements: ");
 
                         int i;
-                        for (i = 0; i < n; i++) {
+                        for (i = 0; i <= n-1; i++) {
 
-                            arr[i] = sc.next().charAt(0);
+                            array[i] = sc.next().charAt(0);
                         }
-                        int j = arr.length - 1;
-                        for (i = 0; i < j; i++) {
-                            if(  isSorted(arr, i)){
+                         //int j = array.length ;
 
-                                    System.out.println("Sorted!"+ Arrays.toString(arr));
+
+                        // int j = array.length ;
+                        for (i = 0; i <= n-1; i++) {
+                            if( isSorted(array, i)){
+
+                                    System.out.println("Sorted! "+ Arrays.toString(array));
                                     System.exit(0);
                             }
-                            else {
-                                if (arr[i] == '0' && arr[i + 1] == '1') {
 
-                                    if (arr[i + 2] == '1') {
-                                        sort(arr, i + 1, j);
-                                    } else if(arr[i+2]=='0') {
-                                        sort(arr, i, j);
+                           // else {
+                            if(n == 5) {
+                                if (array[i] == '0' && array[i + 1] == '1') {
+
+                                    // do not use  j in sort(), use it only when you need to make a change from the end
+
+                                    if (array[i + 1] == '1') {
+                                        if(i+2==n){
+                                            sort(array, i+1, i-2);
+                                        }
+                                        else {
+                                            sort(array, i + 1, n-2);
+                                        }
+                                    /**      if(i == 0){
+                                              sort(arr, i+1,j);
+                                          }
+                                    }
+                                    if (arr[i + 2] == '0') {
+                                        //sort(arr, i, j);
+                                        if (arr[j] == '1') {
+                                            sort(arr, i, j - 1);
+                                        } else if (arr[j] == '0') {
+                                            sort(arr, i, j);
+                                        }
+                                        //j--;
+                                    }**/
+                                   /** if (arr[i - 1] == 1) {
+                                        if (i == 3) {
+                                            // sort(arr, )
+                                        }**/
 
                                     }
+                                 //   if (arr[i - 1] == 0) {
+                                        //
+                                   // }
+
+                                    /**else if(arr[i+2]==arr[i+3]) {
+                                     sort(arr, i, j-1);
+                                     }**/
                                 }
 
-                            }//j--;
-                        }
-                        System.out.println(Arrays.toString(arr));
+                            }
+                    }
+    // }//j--;
+                    }
+    }
+                        //System.out.println(Arrays.toString(arr));
                         /** for (i = 0; i < n; i++) {
                          System.out.print(arr[i] + " ");
 
                          }**/
-                    }
-    }
+
+
 
