@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-public class Sort1 {
+public class Sorting {
 
     private char[] array;
 
@@ -17,7 +17,7 @@ public class Sort1 {
         array[secondp+1]=temp2;
     }
 
-      public static boolean isSorted(char[] array, int i) {
+    public static boolean isSorted(char[] array, int i) {
         for (i = 0; i < array.length-1; i++) {
             if (array[i] > array[i + 1]) {
                 return false;
@@ -46,11 +46,10 @@ public class Sort1 {
 
 
         // int j = array.length ;
-       /** boolean t = true;
-
-        while(t==true){
-            t=false;
-        }**/
+        /** boolean t = true;
+         while(t==true){
+         t=false;
+         }**/
         for (i = 0; i <=array.length-1; i++) {
 
 
@@ -67,64 +66,73 @@ public class Sort1 {
                 if (array[i] == '0' && array[i + 1] == '1') {
 
                     if(i+1 == array.length-1) {
-                          sort(array, i - 1, i - 3);
-                      }
+                        if(array[i+1] == '1') {
+                            sort(array, i - 1, i - 3);
+                        }
+                            else if(array[i+1] == '0'){
+                                sort(array, i , i - 3);
+                            }
+
+                    }
+
                     else{
+
                         if(array[i+2]=='0'){
-                        sort(array, i, i-2);
-                    }
-
-
-                     // sa errora talis
-
-                          /**if(array[i]=='0'&& array[i-1]=='0'){
-                              sort(array, i-1, i-3);
-                          }**/
-
-                    // do not use  j in sort(), use it only when you need to make a change from the end
-
-                    if ( i+2==array.length){
-                        if (array[i-1] == '0' ){
-                            sort(array, i-1, i-3);
+                            sort(array, i, i-2);
                         }
-                    }
-                    if (array[i + 2] == '1') {         //i+2y 6a vercnum, vorn el chka
-                        if(i+2==array.length-1){
-                            sort(array, i+1, i-2);
-                        }
-                       /**else if(array[i] == '0'){
-                            sort(array, i-1, i-3);
-                       }**/
-                        else {
-                            sort(array, i + 1,  array.length-2);
-                        }
-                        /**      if(i == 0){
-                         sort(arr, i+1,j);
-                         }
-                         }
-                         if (arr[i + 2] == '0') {
-                         //sort(arr, i, j);
-                         if (arr[j] == '1') {
-                         sort(arr, i, j - 1);
-                         } else if (arr[j] == '0') {
-                         sort(arr, i, j);
-                         }
-                         //j--;
-                         }**/
-                        /** if (arr[i - 1] == 1) {
-                         if (i == 3) {
-                         // sort(arr, )
+
+
+
+                        // sa errora talis
+
+                        /**if(array[i]=='0'&& array[i-1]=='0'){
+                         sort(array, i-1, i-3);
                          }**/
 
-                    }
-                    //   if (arr[i - 1] == 0) {
-                    //
-                    // }
+                        // do not use  j in sort(), use it only when you need to make a change from the end
 
-                    /**else if(arr[i+2]==arr[i+3]) {
-                     sort(arr, i, j-1);
-                     }**/
-                }
+                        if ( i+2==array.length){
+                            if (array[i-1] == '0' ){
+                                sort(array, i-1, i-3);
+                            }
+                        }
+                        if (array[i + 2] == '1') {         //i+2y 6a vercnum, vorn el chka
+                            if(i+2==array.length-1){
+                                sort(array, i+1, i-2);
+                            }
+                            /**else if(array[i] == '0'){
+                             sort(array, i-1, i-3);
+                             }**/
+                            else {
+                                sort(array, i + 1,  array.length-2);
+                            }
+                            /**      if(i == 0){
+                             sort(arr, i+1,j);
+                             }
+                             }
+                             if (arr[i + 2] == '0') {
+                             //sort(arr, i, j);
+                             if (arr[j] == '1') {
+                             sort(arr, i, j - 1);
+                             } else if (arr[j] == '0') {
+                             sort(arr, i, j);
+                             }
+                             //j--;
+                             }**/
+                            /** if (arr[i - 1] == 1) {
+                             if (i == 3) {
+                             // sort(arr, )
+                             }**/
+
+                        }
+                        //   if (arr[i - 1] == 0) {
+                        //
+                        // }
+
+                        /**else if(arr[i+2]==arr[i+3]) {
+                         sort(arr, i, j-1);
+                         }**/
+                    }
                 }
 
             }
