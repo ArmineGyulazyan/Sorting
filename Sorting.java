@@ -2,11 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-public class Sorting {
-
-    private char[] array;
-
-
+public class Sort1  {
 
     public static void sort(char[] array, int firstp, int secondp) {
         char temp1 = array[firstp];
@@ -63,34 +59,42 @@ public class Sorting {
             // else {
             if(array.length == 5) {
 
+                if(i == array.length-2){
+                    if(array[i]=='0') {
+                        sort(array, i + 1, i - 3);
+                    }
+                        else{
+                            sort(array, i-1, i - 3);
+                        }
+                    }
+                  //  if()
+                
+                else{
                 if (array[i] == '0' && array[i + 1] == '1') {
 
                     if(i+1 == array.length-1) {
                         if(array[i+1] == '1') {
                             sort(array, i - 1, i - 3);
                         }
-                            else if(array[i+1] == '0'){
-                                sort(array, i , i - 3);
-                            }
+                        else if(array[i+1] == '0'){
+                            sort(array, i , i - 3);
+                        }
 
                     }
 
                     else{
 
                         if(array[i+2]=='0'){
-                            sort(array, i, i-2);
+                            if(i+1 == array.length-3){
+                                sort(array, i, i+2);
+                            }
+                            else if(i+1 == array.length-4){
+                                sort(array,i, array.length-2);
+                            }
+                            else{
+                                sort(array, i, i-2);
+                            }
                         }
-
-
-
-                        // sa errora talis
-
-                        /**if(array[i]=='0'&& array[i-1]=='0'){
-                         sort(array, i-1, i-3);
-                         }**/
-
-                        // do not use  j in sort(), use it only when you need to make a change from the end
-
                         if ( i+2==array.length){
                             if (array[i-1] == '0' ){
                                 sort(array, i-1, i-3);
@@ -100,48 +104,22 @@ public class Sorting {
                             if(i+2==array.length-1){
                                 sort(array, i+1, i-2);
                             }
-                            /**else if(array[i] == '0'){
-                             sort(array, i-1, i-3);
-                             }**/
-                            else {
-                                sort(array, i + 1,  array.length-2);
+                            else if(i+2== array.length-3 && array[i+3] == '1'){
+                                sort(array, i+1, array.length-2);
                             }
-                            /**      if(i == 0){
-                             sort(arr, i+1,j);
-                             }
-                             }
-                             if (arr[i + 2] == '0') {
-                             //sort(arr, i, j);
-                             if (arr[j] == '1') {
-                             sort(arr, i, j - 1);
-                             } else if (arr[j] == '0') {
-                             sort(arr, i, j);
-                             }
-                             //j--;
-                             }**/
-                            /** if (arr[i - 1] == 1) {
-                             if (i == 3) {
-                             // sort(arr, )
-                             }**/
+
+                            else {
+                                sort(array, i + 1,  array.length-2); }
+
 
                         }
-                        //   if (arr[i - 1] == 0) {
-                        //
-                        // }
 
-                        /**else if(arr[i+2]==arr[i+3]) {
-                         sort(arr, i, j-1);
-                         }**/
                     }
+                }
                 }
 
             }
         }
-        // }//j--;
+
     }
 }
-//}
-//System.out.println(Arrays.toString(arr));
-/** for (i = 0; i < n; i++) {
- System.out.print(arr[i] + " ");
- }**/
