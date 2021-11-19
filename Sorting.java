@@ -1,8 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-
-public class Sorting  {
+public class Sort1  {
 
     public static void sort(char[] array, int firstp, int secondp) {
         char temp1 = array[firstp];
@@ -12,17 +11,22 @@ public class Sorting  {
         array[secondp]=temp1;
         array[secondp+1]=temp2;
     }
+    public static void cut(char[] array, int i){
+        for (i = 0; i < array.length-1; i++) {
+            if(array[i] > array[i + 1]){
+
+            }
+        }
+    }
 
     public static boolean isSorted(char[] array, int i) {
         for (i = 0; i < array.length-1; i++) {
             if (array[i] > array[i + 1]) {
                 return false;
             }
-
         }
         return true;
     }
-
     public static void main (String[] args) {
 
         int n;
@@ -38,7 +42,6 @@ public class Sorting  {
 
             array[i] = sc.next().charAt(0);
         }
-
         for (i = 0; i <=array.length-1; i++) {
 
             System.out.println( Arrays.toString(array));
@@ -48,20 +51,19 @@ public class Sorting  {
                 System.exit(0);
             }
             //System.out.println( Arrays.toString(array));
+            if(array.length>5){
 
+            }
             if(array.length == 5) {
+                if(i==array.length-1){
 
-            if(i==array.length-1){
-
-               if(array[i-1]=='0' && array[i]=='1' ){
-                      sort(array, i - 1, i - 4);
-                   i=0;
-                  }
-              }
+                    if(array[i-1]=='0' && array[i]=='1' ){
+                        sort(array, i - 1, i - 4);
+                        i=0;
+                    }
+                }
                 if(i == array.length-2){
-
                     if(array[i]=='0' && array[i+1]=='1' && array[i-1]=='1' ) {
-
                         sort(array, i, i - 3);
                         i=0;
                     }
@@ -75,7 +77,7 @@ public class Sorting  {
                         sort(array, i-1, i - 3);
                     }
                     else{
-                       // sort(array, i - 2, i);
+                        // sort(array, i - 2, i);
                         sort(array, i + 1, i - 3);
                     }
                 }
@@ -89,9 +91,7 @@ public class Sorting  {
                             else if(array[i+1] == '0'){
                                 sort(array, i , i - 3);
                             }
-
                         }
-
                         else{
 
                             if(array[i+2]=='0'){
@@ -101,7 +101,7 @@ public class Sorting  {
                                 else if(i+1 == array.length-4){
                                     sort(array,i, array.length-2);
                                 }
-                                else{   //firsr change correct
+                                else{
                                     sort(array, i, i-2);
                                 }
                             }
@@ -110,14 +110,12 @@ public class Sorting  {
                                     sort(array, i-1, i-3);
                                 }
                             }
-                            if (array[i + 2] == '1') {         //i+2y 6a vercnum, vorn el chka
+                            if (array[i + 2] == '1') {
                                 if(i+2==array.length-1){
                                     sort(array, i+1, i-2);
                                 }
                                 else if(i+2== array.length-3 && array[i+3] == '1'){
-                                    sort(array, i+1, array.length-2);
-                                }
-
+                                    sort(array, i+1, array.length-2); }
                                 else {
                                     sort(array, i + 1,  array.length-2); }
                             }
