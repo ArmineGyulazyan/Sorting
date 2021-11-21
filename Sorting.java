@@ -30,9 +30,7 @@ public class Sorting {
         }
         return true;
     }
-
     public static void main(String[] args) {
-
         int n;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of elements: ");
@@ -43,28 +41,23 @@ public class Sorting {
 
         int i;
         for (i = 0; i < n; i++) {
-
             array[i] = sc.next().charAt(0);
         }
-
         for (i = 0; i <= array.length - 1; i++) {
-
             System.out.println( Arrays.toString(array));
             /** if(array.length>5){
 
              }**/
             if (array.length == 5) {
                 if (i == array.length - 2) {
-                    if (array[i] == '0' && array[i + 1] == '1' && array[i - 1] == '1') {
+                    if (array[i-1] == '1' && array[i] == '0' && array[i + 1] == '1') {
                         sort(array, i, i - 3);
-                        i = 0;
+
+                        i=-1;
                     }
-                    /**
-                     * 01 i-1,i-3
-                     * 00 i,i-3
-                     * 11 i-1,i-3**/
-                   else if(array[i]=='1' && array[i+1]=='0'){
+                    else if(array[i]=='1' && array[i+1]=='0'){
                      sort(array, i - 1, i - 3);
+
                      }
                      else if(array[i]=='0' && array[i+1]=='1'){
                      sort(array, i - 1, i - 3);
@@ -79,52 +72,23 @@ public class Sorting {
                     else{
                         sort(array, i + 1, i - 3);
                     }
-                    /**else{
-
-                     // sort(array, i - 2, i);
-                     sort(array, i + 1, i - 3);
-                     }**/
                 }
-
-                    else if (i == array.length - 1) {
+                else if (i == array.length - 1) {
                         if (array[i - 1] == '0' && array[i] == '1') {
                             sort(array, i - 1, i - 4);
                             i = -1;
                         }
-                        /**else if(array[i - 1] == '0' && array[i] == '0'){
-                            sort(array, i - 1, i - 3);
-                        }**/
+
+                       else if(array[i - 1] == '1' && array[i] == '0'){
+                            sort(array,i-1, i-3);
+                            i=-1;
+                        }
                         else /**if(array[i-1]=='1' && array[i]=='1')**/ {
                             sort(array, i - 2, i - 4);
                         }
-
-                    }
+                }
          else{
-                /** if (i == array.length - 2) {
-                 if (array[i] == '0' && array[i + 1] == '1' && array[i - 1] == '1') {
-                 sort(array, i, i - 3);
-                 i = 0;
-                 }
-                 /**else if(array[i]=='1' && array[i+1]=='0'){
-                 sort(array, i - 1, i - 3);
-                 }
-                 else if(array[i]=='0' && array[i+1]=='1'){
-                 sort(array, i - 1, i - 3);
-                 }
-                else if (array[i] == '0' && array[i + 1] == '0') {
-                    sort(array, i, i - 3);
-                } else /**(array[i]=='1' && array[i+1]=='1')**/ {
-                    //sort(array, i, i - 2);
-                //}
-                /**else{
-
-                 // sort(array, i - 2, i);
-                 sort(array, i + 1, i - 3);
-                 }
-                 }**/
-
-
-                if (array[i] == '0' && array[i + 1] == '1') {
+             if (array[i] == '0' && array[i + 1] == '1') {
 
                     if (i + 1 == array.length - 1) {
                         if (array[i + 1] == '1') {
@@ -138,17 +102,21 @@ public class Sorting {
                                 sort(array, i, i + 2);
                             } else if (i + 1 == array.length - 4) {
                                 sort(array, i, array.length - 2);
-                            } else {
+                            }
+                            else if(i + 1 == array.length - 2 && array[i-1]=='0'){
+                                sort(array,i-1,i+1);
+                            }
+                            else if(i + 1 == array.length - 2){
+                                sort(array, i+1,i - 2); }
+                            else {
                                 sort(array, i, i - 2);
                             }
                         }
-                        if (i + 2 == array.length) {
-                            if (array[i - 1] == '0') {
-                                sort(array, i - 1, i - 3);
-                            }
-                        }
                         if (array[i + 2] == '1') {
-                            if (i + 2 == array.length - 1) {
+                            if(i+1==array.length-2){
+                                sort(array,i,i-2);
+                            }
+                            else if (i + 2 == array.length - 1) {
                                 sort(array, i + 1, i - 2);
                             } else if (i + 2 == array.length - 3 && array[i + 3] == '1') {
                                 sort(array, i + 1, array.length - 2);
@@ -162,15 +130,13 @@ public class Sorting {
                     }
                 }
             }
-
-            }
-            //System.out.println(Arrays.toString(array));
             if (isSorted(array, i)) {
 
                 System.out.println("Sorted! " + Arrays.toString(array));
                 System.exit(0);
             }
+            }
     }
 }
-}
+
 
