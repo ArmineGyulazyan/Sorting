@@ -11,7 +11,6 @@ public class Sorting {
         array[secondp] = temp1;
         array[secondp + 1] = temp2;
     }
-
     /**
      * public static void cut(char[] array, int i){
      * for (i = 0; i < array.length-1; i++) {
@@ -21,7 +20,6 @@ public class Sorting {
      * }
      * }
      **/
-
     public static boolean isSorted(char[] array, int i) {
         for (i = 0; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
@@ -45,14 +43,17 @@ public class Sorting {
         }
         for (i = 0; i <= array.length - 1; i++) {
             System.out.println( Arrays.toString(array));
-            /** if(array.length>5){
 
-             }**/
+            if(array.length>5){
+                if(array[array.length-1]=='1'){
+                    
+                    //CUT();
+                }
+             }
             if (array.length == 5) {
                 if (i == array.length - 2) {
                     if (array[i-1] == '1' && array[i] == '0' && array[i + 1] == '1') {
                         sort(array, i, i - 3);
-
                         i=-1;
                     }
                     else if(array[i]=='1' && array[i+1]=='0'){
@@ -111,6 +112,7 @@ public class Sorting {
                             else {
                                 sort(array, i, i - 2);
                             }
+
                         }
                         if (array[i + 2] == '1') {
                             if(i+1==array.length-2){
