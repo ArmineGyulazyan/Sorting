@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class Sort1 {
+public class Sorting {
 
     public static void sort(char[] array, int firstp, int secondp) {
         char temp1 = array[firstp];
@@ -27,6 +27,7 @@ public class Sort1 {
         }
         return true;
     }
+
     public static void main(String[] args) {
         int n;
         Scanner sc = new Scanner(System.in);
@@ -38,40 +39,38 @@ public class Sort1 {
         for (i = 0; i < n; i++) {
             array[i] = sc.next().charAt(0);
         }
-        if(array.length>5){
-            int a=array.length-1;
-            for (i = 1; i <= array.length-2; i++) {
-                System.out.println( Arrays.toString(array));
-
-                if(array[a]=='1'){
-                    // cut(array,array.length-1);
-                    a=a-1;
-                  /**  if(array[i]=='1'){
-
-                        sort(array, i-1,a-1);
-                    }**/
-                }
-                else{ //a=0
-                    if(array[i+1]=='1'){
-                    sort(array, i, a-1);
-                      a = a-1;}
-
-                }
-
-                /**if(i==a){
-                    i=0;
-                }**/
-                if(a==4){
-                   
-                }
-            }
-            
-        }  if(array.length == 5 /**|| array.length == 4**/) {
-            for (i = 0; i <= array.length - 1; i++) {
+        int a=array.length-1;
+        if(array.length>5) {
+            //int a=array.length-1;
+            for (i = 1; i <= array.length - 2; i++) {
                 System.out.println(Arrays.toString(array));
 
-                if (array.length == 5) {
-                    if (i == array.length - 2) {
+                if (array[a] == '1') {
+                    // cut(array,array.length-1);
+                    a = a - 1;
+                    if (array[i] == '1') {
+                        sort(array, i - 1, a - 1);
+                    }
+                } else { //a=0
+                    if (array[i + 1] == '1') {
+                        sort(array, i, a - 1);
+                        a = a - 1;
+                    }
+                }
+                /**if(i==a){
+                 i=0;
+                 }**/
+                if (isSorted(array, i)) {
+                    System.out.println("Sorted! " + Arrays.toString(array));
+                    System.exit(0);
+                }
+            }
+        }    // estexic heto chi mtnum hajord if-i mej vor tesni a==4y, inchpes uxxel?
+        if(array.length == 5 || a==4/**|| array.length == 4**/) {
+            for (i = 0; i <= a; i++) {
+                System.out.println(Arrays.toString(array));
+
+                if (i == array.length - 2) {
                         if (array[i - 1] == '1' && array[i] == '0' && array[i + 1] == '1') {
                             sort(array, i, i - 3);
                             i = -1;
@@ -135,15 +134,14 @@ public class Sort1 {
                             }
                         }
                     }
-                }
-              /**  if(array.length==4){
-
-                }**/
                 if (isSorted(array, i)) {
                     System.out.println("Sorted! " + Arrays.toString(array));
                     System.exit(0);
                 }
             }
+                /**  if(array.length==4){
+                 }**/
+
+            }
         }
     }
-}
