@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class Sorting {
+public class Sort1 {
     public static void sort(char[] array, int firstp, int secondp) {
         char temp1 = array[firstp];
         char temp2 = array[firstp + 1];
@@ -44,10 +44,13 @@ public class Sorting {
                 if(array[a]=='1'){
                   // cut(array,array.length-1);
                     a=a-1;
-
+                 if(array[i]=='1'){
+                     
+                     sort(array, i-1,a-1);
+                 }
                 }
                 else{
-                    sort(array, i-1, a);
+                    sort(array, i-1, a-2);
                 }
             }
         } else if(array.length == 5 || array.length == 4) {
