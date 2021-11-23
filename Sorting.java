@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 public class Sort1 {
+
     public static void sort(char[] array, int firstp, int secondp) {
         char temp1 = array[firstp];
         char temp2 = array[firstp + 1];
@@ -10,15 +11,15 @@ public class Sort1 {
         array[secondp + 1] = temp2;
     }
 
-   /** public static void cut(char[] array, int a){
-      for (a = array.length-1; a>=0; a--) {
-      if(array[a]=='1'){
-            a = a-1;
-      }
-      }
-      }**/
+    /** public static void cut(char[] array, int a){
+     for (a = array.length-1; a>=0; a--) {
+     if(array[a]=='1'){
+     a = a-1;
+     }
+     }
+     }**/
 
-      public static boolean isSorted(char[] array, int i) {
+    public static boolean isSorted(char[] array, int i) {
         for (i = 0; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
                 return false;
@@ -38,22 +39,34 @@ public class Sort1 {
             array[i] = sc.next().charAt(0);
         }
         if(array.length>5){
+            int a=array.length-1;
             for (i = 1; i <= array.length-2; i++) {
                 System.out.println( Arrays.toString(array));
-                int a=array.length-1;
+
                 if(array[a]=='1'){
-                  // cut(array,array.length-1);
+                    // cut(array,array.length-1);
                     a=a-1;
-                 if(array[i]=='1'){
-                     
-                     sort(array, i-1,a-1);
-                 }
+                  /**  if(array[i]=='1'){
+
+                        sort(array, i-1,a-1);
+                    }**/
                 }
-                else{
-                    sort(array, i-1, a-2);
+                else{ //a=0
+                    if(array[i+1]=='1'){
+                    sort(array, i, a-1);
+                      a = a-1;}
+
+                }
+
+                /**if(i==a){
+                    i=0;
+                }**/
+                if(a==4){
+                   
                 }
             }
-        } else if(array.length == 5 || array.length == 4) {
+            
+        }  if(array.length == 5 /**|| array.length == 4**/) {
             for (i = 0; i <= array.length - 1; i++) {
                 System.out.println(Arrays.toString(array));
 
@@ -123,6 +136,9 @@ public class Sort1 {
                         }
                     }
                 }
+              /**  if(array.length==4){
+
+                }**/
                 if (isSorted(array, i)) {
                     System.out.println("Sorted! " + Arrays.toString(array));
                     System.exit(0);
