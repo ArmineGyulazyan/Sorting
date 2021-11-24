@@ -42,7 +42,7 @@ public class Sorting {
         int a=array.length-1;
         if(array.length>5) {
             //int a=array.length-1;
-            for (i = 1; i <= array.length - 2; i++) {
+            for (i = 1; i <= a-1;/**array.length - 2;**/ i++) {
                 System.out.println(Arrays.toString(array));
 
                 if (array[a] == '1') {
@@ -51,26 +51,36 @@ public class Sorting {
                     if (array[i] == '1') {
                         sort(array, i - 1, a - 1);
                     }
-                } else { //a=0
+                } else { //array[a]='0'
                     if (array[i + 1] == '1') {
                         sort(array, i, a - 1);
                         a = a - 1;
                     }
+                   /** else {
+                        sort(array,i-1, a);
+                       // a=a-1;
+                    }**/
                 }
-                /**if(i==a){
-                 i=0;
+                /**if(array[0]=='1'){
+                 sort(array,0,2);
                  }**/
                 if (isSorted(array, i)) {
                     System.out.println("Sorted! " + Arrays.toString(array));
                     System.exit(0);
                 }
+               if(a==4){
+                    break;
+                }
             }
+
+
+
         }    // estexic heto chi mtnum hajord if-i mej vor tesni a==4y, inchpes uxxel?
         if(array.length == 5 || a==4/**|| array.length == 4**/) {
             for (i = 0; i <= a; i++) {
                 System.out.println(Arrays.toString(array));
 
-                if (i == array.length - 2) {
+                if (i == a-1) {
                         if (array[i - 1] == '1' && array[i] == '0' && array[i + 1] == '1') {
                             sort(array, i, i - 3);
                             i = -1;
@@ -85,7 +95,7 @@ public class Sorting {
                         } else {
                             sort(array, i + 1, i - 3);
                         }
-                    } else if (i == array.length - 1) {
+                    } else if (i ==a) {
                         if (array[i - 1] == '0' && array[i] == '1') {
                             sort(array, i - 1, i - 4);
                             i = -1;
@@ -97,7 +107,7 @@ public class Sorting {
                         }
                     } else {
                         if (array[i] == '0' && array[i + 1] == '1') {
-                            if (i + 1 == array.length - 1) {
+                            if (i + 1 == a) {
                                 if (array[i + 1] == '1') {
                                     sort(array, i - 1, i - 3);
                                 } else if (array[i + 1] == '0') {
@@ -105,13 +115,13 @@ public class Sorting {
                                 }
                             } else {
                                 if (array[i + 2] == '0') {
-                                    if (i + 1 == array.length - 3) {
+                                    if (i + 1 == a-2) {
                                         sort(array, i, i + 2);
-                                    } else if (i + 1 == array.length - 4) {
-                                        sort(array, i, array.length - 2);
-                                    } else if (i + 1 == array.length - 2 && array[i - 1] == '0') {
+                                    } else if (i + 1 == a-3) {
+                                        sort(array, i, a-1);
+                                    } else if (i + 1 == a-1 && array[i - 1] == '0') {
                                         sort(array, i - 1, i + 1);
-                                    } else if (i + 1 == array.length - 2) {
+                                    } else if (i + 1 == a-1) {
                                         sort(array, i + 1, i - 2);
                                     } else {
                                         sort(array, i, i - 2);
@@ -119,16 +129,16 @@ public class Sorting {
 
                                 }
                                 if (array[i + 2] == '1') {
-                                    if (i + 1 == array.length - 2) {
+                                    if (i + 1 == a-1) {
                                         sort(array, i, i - 2);
-                                    } else if (i + 2 == array.length - 1) {
+                                    } else if (i + 2 == a) {
                                         sort(array, i + 1, i - 2);
-                                    } else if (i + 2 == array.length - 3 && array[i + 3] == '1') {
-                                        sort(array, i + 1, array.length - 2);
-                                    } else if (i + 2 == array.length - 2) {
+                                    } else if (i + 2 == a-2 && array[i + 3] == '1') {
+                                        sort(array, i + 1, a - 1);
+                                    } else if (i + 2 == a-1) {
                                         sort(array, i + 1, i - 1);
                                     } else {
-                                        sort(array, i + 1, array.length - 2);
+                                        sort(array, i + 1, a-1);
                                     }
                                 }
                             }
