@@ -152,3 +152,11 @@ public class Sorting {
         }
     }
 }
+ /**if (array[1] == 1 && array[2] == 0) {
+                if (array[0] == array[lastIndex] || (array[0] == 1 && array[lastIndex] == 0)) {
+                    swap(array, 0, lastIndex - 1);
+                }
+            } else {
+                throw new Exception();
+            }**/
+
